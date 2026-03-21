@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+
+<!-- ===== HEADER ===== -->
+<section class="detail-top">
+
+    <!-- BACK -->
+    <a href="{% url 'blog_page' %}" class="back-btn">
+        ← Back
+    </a>
+
+    <div class="blog-img-box">
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}">
+                      {% else %}
+                     <img src="{% static 'images/default.png' %}">
+                {% endif %}
+            </div>
+
+    <!-- TITLE -->
+    <h1 class="detail-title">
+        {{ blog.title }}
+    </h1>
+
+    <!-- META -->
+    <div class="detail-meta">
+
+        <span class="dot">●</span>
+        <span>{{ blog.category }}</span>
+
+        <span class="dot">●</span>
+        <span>By {{ blog.author }}</span>
+
+        <span class="dot">●</span>
+        <span>{{ blog.created_at|date:"M d, Y" }}</span>
+
+        <span class="dot">●</span>
+        <span>{{ blog.cooking_time }}</span>
+
+    </div>
+
+    <!-- ===== MAIN ===== -->
+<section class="detail-body">
+
+<div class="detail-body-grid">
+
+    <!-- ===== LEFT CONTENT ===== -->
+    <div class="body-left">
+
+        <!-- FIRST PARAGRAPH -->
+        {% if steps %}
+        <p class="body-text">
+            {{ steps.0.description }}
+        </p>
+        {% endif %}
+
+        <!-- FIRST IMAGE -->
+        {% if steps.0.image %}
+        <img src="{{ steps.0.image.url }}" class="body-img">
+        {% endif %}
+
+        <!-- SECOND + THIRD PARAGRAPH -->
+        {% if steps|length > 1 %}
+        <p class="body-text">{{ steps.1.description }}</p>
+        {% endif %}
+
+        {% if steps|length > 2 %}
+        <p class="body-text">{{ steps.2.description }}</p>
+        {% endif %}
+
+        <!-- ===== GALLERY GRID ===== -->
+        <div class="gallery-grid">
+
+            {% for img in gallery %}
+                <div class="g{{ forloop.counter }}">
+                    <img src="{{ img.image.url }}">
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- REMAINING PARAGRAPHS -->
+        {% for step in steps|slice:"3:" %}
+            <p class="part3-text">
+                {{ step.description }}
+            </p>
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ===== RIGHT SIDEBAR ===== -->
+    <div class="body-right">
+
+        <div class="ingredients-box">
+
+            <h3>Ingredients</h3>
+
+            <ol>
+                {% for item in ingredients %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ol>
+
+            <h3 class="why-title">Why You’ll Love This Recipe</h3>
+
+            <ol class="why-list">
+                <li>Simple ingredients</li>
+                <li>Creamy and flavorful</li>
+                <li>Perfect for family dinners</li>
+                <li>Vegetarian-friendly</li>
+                <li>Quick & easy</li>
+            </ol>
+
+        </div>
+
+        <!-- VIDEO -->
+        <div class="video-card">
+            <h3>Watch Video</h3>
+
+            <div class="video-box">
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}">
+                {% else %}
+                    <img src="{% static 'images/default.png' %}">
+                {% endif %}
+                <span class="play-icon">▶</span>
+            </div>
+        </div>
+
+        <!-- COMMENTS -->
+        <div class="comment-card">
+
+            <h4 class="reply-title">Leave a Reply</h4>
+
+            <form method="POST" action="{% url 'comment' blog.id %}">
+                {% csrf_token %}
+
+                <textarea name="comment" placeholder="Write comment..." required></textarea>
+
+                <button type="submit">Post a Comment</button>
+            </form>
+
+            <div class="comments-list">
+                {% for c in blog.comment_set.all %}
+                    <p><b>{{ c.user.username }}</b>: {{ c.text }}</p>
+                {% empty %}
+                    <p>No comments yet</p>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+<div class="newsletter-box">
+
+<h2>Stay Updated with Fresh Recipes</h2>
+
+<p>
+Get delicious recipes, cooking tips, and trending food ideas delivered straight to your inbox. No spam, just tasty inspiration!
+</p>
+
+<div class="newsletter-form">
+<input type="email" placeholder="Enter Email Address">
+<button>Subscribe Now</button>
+</div>
+
+<span class="privacy-text">
+We respect your privacy. Unsubscribe anytime.
+</span>
+
+</div>
+
+</section>
+
+{% endblock %}

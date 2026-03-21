@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<!-- HERO -->
+<section class="dashboard-hero"></section>
+
+<section class="dashboard">
+
+    <!-- PROFILE -->
+    <div class="profile-card">
+
+        <div class="profile-header">
+            <h3>Profile</h3>
+            <button class="share-btn" onclick="shareProfile()">Share Profile</button>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="profile-info">
+
+                <div class="avatar">
+                    {% if profile.image %}
+                        <img src="{{ profile.image.url }}" class="profile-img">
+                    {% else %}
+                        {{ request.user.username|first|upper }}
+                    {% endif %}
+                </div>
+
+                <h4>{{ request.user.username }}</h4>
+                <p class="username">@{{ request.user.username }}</p>
+
+                <p class="joined">
+                    Joined {{ request.user.date_joined|date:"F Y" }}
+                </p>
+
+                <label class="upload-btn">
+                    Update Profile Picture
+                    <input type="file" name="image" hidden>
+                </label>
+
+                <div class="location">
+                    <label>📍Location</label>
+                    <input type="text" name="location" value="{{ profile.location }}">
+                </div>
+
+                <div class="bio">
+                    <label>Bio</label>
+                    <input type="text" name="bio" value="{{ profile.bio }}">
+                </div>
+
+                <button type="submit" class="save-btn">Save Profile</button>
+
+                <button type="submit" name="remove_profile" value="1" class="remove-btn">
+                 Remove Profile
+                </button>
+
+                <div class="activity">
+                    <button type="button">Likes {{ request.user.like_set.count }}</button>
+                    <button type="button">Comments {{ request.user.comment_set.count }}</button>
+                </div>
+
+                <a href="{% url 'logout' %}" class="logout">⬅ Logout</a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- RIGHT -->
+    <div class="dashboard-right">
+
+        <div class="top-bar">
+            <a href="{% url 'create_blog' %}" class="write-btn">Write a blog</a>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="card">
+                <div class="icon">📝</div>
+                <div>
+                    <p>Blogs</p>
+                    <h2>{{ blog_count }}</h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon">📄</div>
+                <div>
+                    <p>Draft</p>
+                    <h2>{{ draft_count }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <span class="active" onclick="showTab('published')">Your Blogs</span>
+            <span onclick="showTab('draft')">Drafts</span>
+        </div>
+
+        <!-- PUBLISHED -->
+        <div class="blog-grid" id="published">
+
+            {% for blog in blogs %}
+            <div class="blog-card">
+
+    <!-- IMAGE -->
+    {% if blog.image %}
+        <img src="{{ blog.image.url }}">
+    {% else %}
+        <img src="{% static 'images/default.png' %}">
+    {% endif %}
+
+    <!-- 🔥 TOP OVERLAY -->
+    <div class="top-overlay">
+        <a href="{% url 'edit_blog' blog.id %}" class="edit-btn">Edit</a>
+        <a href="{% url 'unpublish_blog' blog.id %}" class="unpublish-btn" onclick="return confirm('Move to draft?')">
+    Unpublish
+</a>
+    </div>
+
+    <!-- 🔥 BOTTOM TEXT -->
+    <div class="bottom-overlay">
+        <p>{{ blog.title }}</p>
+    </div>
+
+</div>
+            {% empty %}
+                <p>No blogs yet</p>
+            {% endfor %}
+
+        </div>
+
+
+        <!-- DRAFT -->
+        <div class="blog-grid" id="draft" style="display:none;">
+
+            {% for blog in request.user.blog_set.all %}
+                {% if blog.status == 'draft' %}
+
+                <div class="blog-card">
+
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}">
+                    {% else %}
+                        <img src="{% static 'images/default.png' %}">
+                    {% endif %}
+
+                    <div class="top-overlay">
+                        <a href="{% url 'edit_blog' blog.id %}" class="edit-btn">Edit</a>
+                        <a href="{% url 'publish_blog' blog.id %}" class="publish-btn">Publish</a>
+                    </div>
+
+                    <div class="bottom-overlay">
+                        <p>{{ blog.title }}</p>
+                    </div>
+
+                </div>
+
+                {% endif %}
+            {% empty %}
+                <p>No drafts</p>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- JS -->
+<script>
+function previewImage(event){
+    const file = event.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+        const img = new Image();
+        img.src = e.target.result;
+
+        img.onload = function(){
+
+            const canvas = document.createElement('canvas');
+            const size = 200;
+
+            canvas.width = size;
+            canvas.height = size;
+
+            const ctx = canvas.getContext('2d');
+
+            // center crop
+            let min = Math.min(img.width, img.height);
+
+            ctx.drawImage(
+                img,
+                (img.width - min)/2,
+                (img.height - min)/2,
+                min,
+                min,
+                0,
+                0,
+                size,
+                size
+            );
+
+            const cropped = canvas.toDataURL("image/jpeg");
+
+            let avatar = document.querySelector('.avatar');
+            avatar.innerHTML = `<img src="${cropped}" class="profile-img">`;
+        };
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function showTab(type){
+    document.getElementById('published').style.display = 'none';
+    document.getElementById('draft').style.display = 'none';
+    document.getElementById(type).style.display = 'grid';
+
+    document.querySelectorAll('.tabs span').forEach(tab => tab.classList.remove('active'));
+
+    if(type === 'published'){
+        document.querySelectorAll('.tabs span')[0].classList.add('active');
+    }else{
+        document.querySelectorAll('.tabs span')[1].classList.add('active');
+    }
+}
+
+function shareProfile(){
+    let url = window.location.href;
+    navigator.clipboard.writeText(url);
+    alert("Profile link copied!");
+}
+</script>
+
+{% endblock %}

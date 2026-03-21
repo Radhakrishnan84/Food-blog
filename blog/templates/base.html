@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% block title %}TastyBites{% endblock %}</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="nav-left">
+
+<a href="/"><img src="{% static 'images/logo.png' %}" class="logo"></a>
+
+<div class="search-box">
+<i class="fa fa-search"></i>
+<input type="text" placeholder="Search here...">
+</div>
+
+</div>
+
+
+<nav class="menu">
+
+<a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+
+<a href="{% url 'blog_page' %}" class="{% if 'blog' in request.path %}active{% endif %}">Blogs</a>
+
+<a href="{% url 'recipes_page' %}" class="{% if 'recipes' in request.path %}active{% endif %}">Recipes</a>
+
+<a href="{% url 'create_blog' %}" class="{% if 'write' in request.path %}active{% endif %}">Write</a>
+
+</nav>
+
+
+<div class="nav-right">
+
+{% if user.is_authenticated %}
+
+    <!-- AFTER LOGIN -->
+    <a href="{% url 'dashboard' %}" class="subscribe-btn">Dashboard</a>
+
+{% else %}
+
+    <!-- BEFORE LOGIN -->
+    <a href="{% url 'login' %}" class="account">Account</a>
+    <a href="#" class="subscribe-btn">Subscribe</a>
+
+{% endif %}
+
+</div>
+
+</header>
+
+
+
+<!-- ================= PAGE CONTENT ================= -->
+
+{% block content %}
+{% endblock %}
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="footer-top">
+
+<div class="footer-about">
+
+<img src="{% static 'images/logo.png' %}" class="footer-logo">
+
+<p>Email: support@gmail.com</p>
+<p>Phone: +91 XXXXX XXXXX</p>
+<p>Location: Chennai, India</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<h3>Quick Links</h3>
+
+<a href="/">Home</a>
+<a href="/blog">Blog</a>
+<a href="/recipes">Recipes</a>
+<a href="/write">Write</a>
+
+</div>
+
+
+<div class="footer-links">
+
+<h3>Categories</h3>
+
+<a href="#">Desserts</a>
+<a href="#">Quick Meals</a>
+<a href="#">Vegetarian</a>
+<a href="#">Non-Vegetarian</a>
+<a href="#">Drinks</a>
+
+</div>
+
+
+<div class="footer-newsletter">
+
+<h3>Subscribe to Our Newsletter</h3>
+
+<p>Get fresh recipes and cooking inspiration every week.</p>
+
+<div class="newsletter-form">
+
+<input type="email" placeholder="Enter Email Address">
+<button>Subscribe Now</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<div class="footer-center">
+
+<p>© 2026 Your Website Name. All rights reserved.</p>
+<p>Privacy Policy | Terms & Conditions</p>
+
+</div>
+
+<div class="social-icons">
+
+<span>Follow us,</span>
+
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-youtube"></i>
+<i class="fab fa-twitter"></i>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

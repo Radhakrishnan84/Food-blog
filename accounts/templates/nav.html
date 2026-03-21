@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% block title %}TastyBites{% endblock %}</title>
+
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="nav-left">
+
+<a href="/"><img src="{% static 'images/logo.png' %}" class="logo"></a>
+
+<div class="search-box">
+<i class="fa fa-search"></i>
+<input type="text" placeholder="Search here...">
+</div>
+
+</div>
+
+
+<nav class="menu">
+
+<a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+
+<a href="{% url 'blog_page' %}" class="{% if 'blog' in request.path %}active{% endif %}">Blogs</a>
+
+<a href="{% url 'recipes_page' %}" class="{% if 'recipes' in request.path %}active{% endif %}">Recipes</a>
+
+<a href="#">Write</a>
+
+</nav>
+
+
+<div class="nav-right">
+
+{% if user.is_authenticated %}
+
+    <!-- AFTER LOGIN -->
+    <a href="{% url 'dashboard' %}" class="subscribe-btn">Dashboard</a>
+
+{% else %}
+
+    <!-- BEFORE LOGIN -->
+    <a href="{% url 'login' %}" class="account">Account</a>
+    <a href="#" class="subscribe-btn">Subscribe</a>
+
+{% endif %}
+
+</div>
+
+</header>
+
+
+
+<!-- ================= PAGE CONTENT ================= -->
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/recipes.css' %}">
+
+<!-- ================= HERO ================= -->
+<section class="recipe-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <h1>Explore Tasty Recipes</h1>
+
+        <p>
+            From quick meals to gourmet delights, find the perfect recipe for every occasion.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="recipe-title">
+
+    <h2>Most Popular Recipe Collections</h2>
+
+</section>
+
+<section class="recipe-grid-section">
+
+    <div class="recipe-grid">
+
+         {% for recipe in recipes %}
+        <div class="recipe-card">
+
+            <!-- IMAGE -->
+            <div class="card-img">
+
+                <img src="{{ recipe.image.url }}">
+
+                <span class="badge">Recipe</span>
+
+                <span class="rating">
+                    ⭐ 4.5
+                </span>
+
+            </div>
+
+            <!-- CONTENT -->
+            <div class="card-content">
+
+                <div class="meta">
+                    <span>⏱ {{ recipe.cooking_time }}</span>
+                    <span>Easy</span>
+                </div>
+
+                <h3>{{ recipe.title }}</h3>
+
+                <p>
+                    {{ recipe.description|truncatewords:12 }}
+                </p>
+
+                <div class="card-footer">
+
+                    <div class="author">
+
+    <img src="{{ recipe.user.accountprofile.image.url }}">
+
+    <span>{{ recipe.user.username }}</span>
+
+</div>
+                     <span class="heart">♡</span>
+
+                </div>
+
+            </div>
+
+        </div>
+        {% empty %}
+        <p>No popular recipes available</p>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ================= BANNER ================= -->
+<section class="recipe-banner">
+
+    <div class="banner-content">
+
+        <h5>Get Started</h5>
+
+        <h2>10 Ingredients.<br>hundreds of Recipes</h2>
+
+        <p>
+            All you need is 10 staple ingredients to make hundreds of authentic dishes.
+        </p>
+
+        <button>Browse Guide</button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ALL RECIPES ================= -->
+<section class="all-recipes">
+
+    <h2>All Recipes</h2>
+
+    <div class="all-recipes-grid">
+
+        {% for recipe in recipes %}
+        <a href="{% url 'blog_detail' recipe.id %}" class="recipe-box">
+
+            <img src="{{ recipe.image.url }}">
+
+            <div class="overlay">
+                <p>{{ recipe.title }}</p>
+            </div>
+
+        </a>
+        {% endfor %}
+
+    </div>
+
+    <div class="browse-btn">
+        <button>Browse All</button>
+    </div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+<div class="newsletter-box">
+
+<h2>Stay Updated with Fresh Recipes</h2>
+
+<p>
+Get delicious recipes, cooking tips, and trending food ideas delivered straight to your inbox. No spam, just tasty inspiration!
+</p>
+
+<div class="newsletter-form">
+<input type="email" placeholder="Enter Email Address">
+<button>Subscribe Now</button>
+</div>
+
+<span class="privacy-text">
+We respect your privacy. Unsubscribe anytime.
+</span>
+
+</div>
+
+</section>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

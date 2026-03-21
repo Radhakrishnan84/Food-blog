@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/edit_blog.css' %}">
+
+<!-- HERO -->
+<section class="hero"></section>
+
+<section class="write-page">
+
+    <!-- HEADER -->
+    <div class="write-header">
+        <div>
+            <h2>Edit Blog Post</h2>
+            <p>Update your delicious recipe</p>
+        </div>
+
+        <div class="actions">
+            <button type="submit" form="editForm" name="action" value="draft" class="draft-btn">Save Draft</button>
+            <button type="submit" form="editForm" name="action" value="publish" class="publish-btn">Update</button>
+        </div>
+    </div>
+
+    <div class="write-layout">
+
+        <!-- LEFT -->
+        <div class="left">
+
+            <form method="POST" enctype="multipart/form-data" id="editForm">
+                {% csrf_token %}
+
+                <!-- TITLE -->
+                <label>Blog Title</label>
+                <input type="text" name="title" value="{{ blog.title }}">
+
+                <!-- DESCRIPTION -->
+                <label>Short Description</label>
+                <textarea name="description">{{ blog.description }}</textarea>
+
+                <!-- IMAGE -->
+                <label>Upload Cover Image</label>
+                <div class="upload-box">
+
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}">
+                    {% else %}
+                        <img src="{% static 'images/default.png' %}">
+                    {% endif %}
+
+                    <input type="file" name="image">
+                </div>
+
+                <!-- DETAILS -->
+                <div class="row">
+                    <select name="category">
+                        <option>{{ blog.category }}</option>
+                        <option>Desserts</option>
+                        <option>Veg</option>
+                        <option>Non-Veg</option>
+                        <option>Quick Meals</option>
+                        <option>Drinks</option>
+                    </select>
+
+                    <input type="text" name="cooking_time" value="{{ blog.cooking_time }}">
+                    <input type="text" name="prep_time" placeholder="Prep time">
+                    <input type="text" name="servings" placeholder="Servings">
+                </div>
+
+                <!-- INGREDIENTS -->
+                <div class="dynamic">
+                    <label>Ingredients</label>
+                    <textarea name="ingredients">{{ blog.ingredients }}</textarea>
+                </div>
+
+                <!-- STEPS -->
+                <div class="dynamic">
+                    <label>Preparation Steps</label>
+                    <textarea name="steps">{{ blog.steps }}</textarea>
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- RIGHT SETTINGS -->
+        <div class="right">
+
+            <h3>Settings</h3>
+
+            <label>Tags</label>
+            <input type="text" name="tags" form="editForm" value="{{ blog.tags }}">
+
+            <div class="checkbox">
+                <input type="checkbox" name="allow_comments" form="editForm" checked>
+                <label>Allow Comments</label>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

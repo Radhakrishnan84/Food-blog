@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | TastyBites{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-slider">
+<div class="slide active" style="background-image:url('{% static "images/hero1.png" %}')"></div>
+<div class="slide" style="background-image:url('{% static "images/hero2.png" %}')"></div>
+<div class="slide" style="background-image:url('{% static "images/hero3.png" %}')"></div>
+</div>
+
+<div class="hero-content">
+<h1>Discover Delicious Recipes Every Day</h1>
+<p>Simple ingredients. Amazing flavors. Cook with confidence and joy.</p>
+
+<div class="hero-buttons">
+    
+    <a href="{% url 'blog_page' %}">
+       <button class="explore-btn">Explore Blog</button>
+    </a>
+
+    <a href="{% url 'create_blog' %}">
+    <button class="write-btn">Write a Blog</button>
+    </a>
+
+</div>
+</div>
+
+<div class="slider-dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
+</section>
+
+
+<!-- ================= TRENDING ================= -->
+
+<section class="trending">
+
+<div class="trending-header">
+
+<div class="title-wrap">
+<span class="trend-icon">↗</span>
+<div>
+<h2>Trending Now</h2>
+<p>Most loved recipes by our community this week.</p>
+</div>
+</div>
+
+<a href="{% url 'recipes_page' %}" class="view-all">View all →</a>
+
+</div>
+
+
+<div class="recipe-grid">
+
+{% for recipe in recipes %}
+
+<div class="recipe-card">
+
+<div class="card-image">
+
+<img src="{{ recipe.image.url }}">
+
+<span class="recipe-tag">Recipe</span>
+
+<span class="rating-pill">⭐ {{ recipe.rating }}</span>
+
+</div>
+
+<div class="card-body">
+
+<div class="meta-row">
+<span>⏱ {{ recipe.cooking_time }} min</span>
+<span>{{ recipe.difficulty }}</span>
+</div>
+
+<h3>{{ recipe.title }}</h3>
+
+<p>{{ recipe.description|truncatewords:15 }}</p>
+
+<div class="card-footer">
+
+<div class="author">
+
+    <img src="{{ recipe.user.accountprofile.image.url }}">
+
+    <span>{{ recipe.user.username }}</span>
+
+</div>
+                     <span class="heart">♡</span>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+
+<!-- ================= LATEST BLOGS ================= -->
+
+<section class="latest-blogs">
+
+<div class="blogs-container">
+
+<h2 class="blogs-title">Latest Blogs</h2>
+
+<div class="blogs-grid">
+
+{% for blog in blogs %}
+
+<div class="blog-card">
+
+<div class="blog-image">
+
+{% if blog.image %}
+    <img src="{{ blog.image.url }}">
+{% else %}
+    <img src="{% static 'images/default.png' %}">
+{% endif %}
+
+<span class="blog-tag">{{ blog.category }}</span>
+
+</div>
+
+<div class="blog-content">
+
+<h3>{{ blog.title }}</h3>
+
+<p>{{ blog.description|truncatewords:18 }}</p>
+
+<a href="{% url 'blog_page' %}"  class="read-more">Read More →</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+<h2 class="section-title">Popular Categories</h2>
+
+<div class="category-grid">
+
+<div class="category-card small">
+<img src="{% static 'images/cat1.png' %}">
+<div class="category-label">Desserts</div>
+</div>
+
+<div class="category-card small">
+<img src="{% static 'images/cat2.png' %}">
+<div class="category-label">Quick Meals</div>
+</div>
+
+<div class="category-card large">
+<img src="{% static 'images/cat3.png' %}">
+<div class="category-label">Vegetarian</div>
+</div>
+
+<div class="category-card small">
+<img src="{% static 'images/cat4.png' %}">
+<div class="category-label">Non-Veg</div>
+</div>
+
+<div class="category-card small">
+<img src="{% static 'images/cat5.png' %}">
+<div class="category-label">Drinks</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= WHY JOIN ================= -->
+
+<section class="why-join">
+
+<div class="why-container">
+
+<div class="why-image">
+<img src="{% static 'images/why choose.png' %}">
+</div>
+
+<div class="why-content">
+
+<h2>Why Join ?</h2>
+
+<p class="why-text">
+Discover, cook, and share delicious recipes with thousands of food lovers around the world.
+</p>
+
+<div class="why-list">
+
+<div class="why-item">
+<span class="why-number">1</span>
+<div>
+<h4>Discover New Recipes</h4>
+<p>Explore trending recipes daily.</p>
+</div>
+</div>
+
+<div class="why-item">
+<span class="why-number">2</span>
+<div>
+<h4>Save Your Favorites</h4>
+<p>Create your own collection.</p>
+</div>
+</div>
+
+<div class="why-item">
+<span class="why-number">3</span>
+<div>
+<h4>Step-by-Step Guidance</h4>
+<p>Follow easy instructions.</p>
+</div>
+</div>
+
+<div class="why-item">
+<span class="why-number">4</span>
+<div>
+<h4>Join Community</h4>
+<p>Share your cooking experience.</p>
+</div>
+</div>
+
+</div>
+
+<button class="start-btn">Start Cooking Today</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+<div class="newsletter-box">
+
+<h2>Stay Updated with Fresh Recipes</h2>
+
+<p>
+Get delicious recipes, cooking tips, and trending food ideas delivered straight to your inbox. No spam, just tasty inspiration!
+</p>
+
+<div class="newsletter-form">
+<input type="email" placeholder="Enter Email Address">
+<button>Subscribe Now</button>
+</div>
+
+<span class="privacy-text">
+We respect your privacy. Unsubscribe anytime.
+</span>
+
+</div>
+
+</section>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

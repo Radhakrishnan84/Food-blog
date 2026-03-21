@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/write_blog.css' %}">
+
+<section class="hero"></section>
+
+<section class="write-section">
+
+<div class="write-container">
+
+    <!-- ===== HEADER ===== -->
+    <div class="write-header">
+        <h1>Write a New Blog Post</h1>
+        <p>Create and share your delicious recipe with the world.</p>
+
+        <div class="write-actions">
+            <button type="button" id="saveDraft">Save Draft</button>
+            <button type="submit" form="blogForm">Publish</button>
+        </div>
+    </div>
+
+    <!-- ===== FORM ===== -->
+    <form method="POST" enctype="multipart/form-data" id="blogForm">
+        {% csrf_token %}
+
+        <div class="write-grid">
+
+            <!-- ===== LEFT ===== -->
+            <div class="write-left">
+
+                <!-- TITLE -->
+                <label>Blog Title</label>
+                <input type="text" name="title" placeholder="Enter your recipe title here">
+
+                <!-- DESCRIPTION -->
+                <label>Short Description</label>
+                <textarea name="description" placeholder="Write a short summary of your recipe (150–200 characters)"></textarea>
+
+                <!-- COVER IMAGE -->
+                <label>Upload Cover Image</label>
+                <input type="file" name="image">
+
+                <!-- CATEGORY + TIME -->
+                <div class="flex-row">
+                    <select name="category">
+                        <option>Desserts</option>
+                        <option>Quick Meals</option>
+                        <option>Veg</option>
+                        <option>Non-Veg</option>
+                        <option>Drinks</option>
+                    </select>
+
+                    <input type="text" name="prep_time" placeholder="Preparation Time">
+                    <input type="text" name="cook_time" placeholder="Cooking Time">
+                    <input type="text" name="servings" placeholder="Servings">
+                </div>
+
+                <!-- ===== INGREDIENTS ===== -->
+                <label>Ingredients</label>
+                <textarea name="ingredients" placeholder="Enter ingredients separated by comma"></textarea>
+
+                <!-- ===== STEPS (DYNAMIC ADD) ===== -->
+                <label>Preparation Steps</label>
+
+                <div id="stepsContainer">
+
+                    <textarea name="steps" placeholder="Step 1"></textarea>
+
+                </div>
+
+                <button type="button" id="addStepBtn">Add Step</button>
+
+                <!-- ===== STEP IMAGES ===== -->
+                <label>Step Images</label>
+                <input type="file" name="step_images" multiple>
+
+                <!-- ===== GALLERY ===== -->
+                <label>Gallery Images (Max 5)</label>
+                <input type="file" name="gallery_images" multiple>
+
+                <!-- TAGS -->
+                <label>Tags</label>
+                <input type="text" name="tags" placeholder="e.g., Dinner, Pasta">
+
+            </div>
+
+
+            <!-- ===== RIGHT SETTINGS ===== -->
+            <div class="write-right">
+
+                <h3>Settings</h3>
+
+                <label>Padding</label>
+                <input type="range">
+
+                <label>Margin</label>
+                <input type="range">
+
+                <h4>Style</h4>
+
+                <div class="radius-options">
+                    <button type="button">4px</button>
+                    <button type="button">8px</button>
+                    <button type="button">12px</button>
+                    <button type="button">16px</button>
+                </div>
+
+                <h4>Image Layout</h4>
+                <button type="button">2x2 Grid</button>
+                <button type="button">3x1 Feature</button>
+
+                <button type="button">Add Images</button>
+
+                <h4>Comment Settings</h4>
+                <label>
+                    <input type="checkbox" checked> Allow Comments
+                </label>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+</section>
+
+
+<!-- ===== JS (ADD STEP DYNAMICALLY) ===== -->
+<script>
+
+let stepCount = 1;
+
+document.getElementById("addStepBtn").addEventListener("click", function(){
+
+    stepCount++;
+
+    let container = document.getElementById("stepsContainer");
+
+    let textarea = document.createElement("textarea");
+    textarea.name = "steps";
+    textarea.placeholder = "Step " + stepCount;
+
+    container.appendChild(textarea);
+
+});
+
+</script>
+
+{% endblock %}

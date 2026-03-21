@@ -1,0 +1,64 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<section class="login-section">
+
+<div class="login-box">
+
+<h2>“Welcome Back, Food Lover!”</h2>
+<p>Discover, cook, and share delicious recipes.</p>
+
+<form method="POST" class="login-form">
+{% csrf_token %}
+
+<label>User Name / Email Id</label>
+<input type="text" name="username" placeholder="Enter User name or Email Id">
+
+
+<div class="password-wrapper">
+<label>Password</label>
+<input type="password" name="password" id="password" placeholder="Enter Password">
+<i class="fa fa-eye-slash toggle-password" id="togglePassword"></i>
+</div>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<a href="{% url 'account_reset_password' %}" class="forgot">
+    Forget Password?
+</a>
+  
+<a href="{% url 'dashboard' %}">
+        <button type="submit">Login</button>
+</a>
+<p class="register-link">
+Don’t have an account?
+<a href="{% url 'register' %}">Register</a>
+</p>
+
+<hr>
+
+<p class="quick">Quick Login</p>
+
+<a href="{% provider_login_url 'google' %}" class="google-btn">
+    <img src="{% static 'images/google.png' %}" class="google-icon">
+    Continue With Google
+</a>
+
+
+</form>
+
+</div>
+
+</section>
+
+<script src="{% static 'js/PWD.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<section class="login-section">
+
+<div class="login-box">
+
+<h2>“Join Our Food Community!”</h2>
+<p>Create, share, and discover delicious recipes.</p>
+
+<form method="POST" class="login-form">
+{% csrf_token %}
+
+<h3 style="text-align:left; margin-top:10px;">Create Account</h3>
+
+
+<!-- EMAIL -->
+<label>Email Id</label>
+<input type="email" name="email" placeholder="Enter Email Id" required>
+
+<!-- PASSWORD -->
+<div class="password-wrapper">
+<label>Password</label>
+<input type="password" name="password" id="password" placeholder="Enter Password" required>
+<i class="fa fa-eye-slash toggle-password" id="togglePassword"></i>
+
+</div>
+
+<!-- ERROR -->
+{% if messages %}
+    {% for message in messages %}
+        <p class="error">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<!-- REGISTER BUTTON -->
+ <a href="{% url 'dashboard' %}">
+    <button type="submit">Register</button>
+ </a>
+
+<!-- LOGIN LINK -->
+<p class="register-link">
+Already have an account?
+<a href="{% url 'login' %}">Login</a>
+</p>
+
+<hr>
+
+<p class="quick">Quick Login</p>
+
+<!-- GOOGLE LOGIN -->
+<a href="{% provider_login_url 'google' %}" class="google-btn">
+    Continue With Google
+    <img src="{% static 'images/google.png' %}" class="google-icon">
+</a>
+
+</form>
+
+</div>
+
+</section>
+
+<script src="{% static 'js/PWD.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ================= HERO ================= -->
+<section class="blog-hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Our Food Blog</h1>
+        <p>Discover cooking tips, trending recipes, and kitchen inspiration.</p>
+    </div>
+</section>
+
+
+<!-- ================= MAIN SECTION ================= -->
+<section class="blog-section">
+
+<div class="blog-wrapper">
+
+    <!-- ================= LEFT ================= -->
+    <div class="blog-left">
+
+        <!-- TOP BAR -->
+        <div class="blog-top">
+
+            <!-- CATEGORY DROPDOWN -->
+            <div class="category-dropdown">
+
+    <button class="dropdown-btn" id="dropdownToggle">
+        {{ selected_category|default:"Categories" }} ▼
+    </button>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+
+         <!-- ALL -->
+    <a href="{% url 'blog_page' %}">
+        All ({{ blogs.paginator.count }})
+    </a>
+
+      <!-- CATEGORY LIST -->
+    {% for cat in categories %}
+    <a href="?category={{ cat.category }}"
+       class="{% if cat.category == selected_category %}active-cat{% endif %}">
+
+        {{ cat.category }} ({{ cat.count }})
+
+    </a>
+    {% endfor %}
+
+    </div>
+
+</div>
+
+            <!-- PAGINATION TOP -->
+            <div class="pagination">
+
+                <span>Page</span>
+
+                {% for num in blogs.paginator.page_range %}
+
+                    {% if num == blogs.number %}
+                        <span class="page active">{{ num }}</span>
+
+                    {% elif num > blogs.number|add:'-2' and num < blogs.number|add:'2' %}
+                        <a href="?page={{ num }}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="page">
+                            {{ num }}
+                        </a>
+                    {% endif %}
+
+                {% endfor %}
+
+                {% if blogs.has_next %}
+                    <a href="?page={{ blogs.next_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="next">
+                        Next ›
+                    </a>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- BLOG LIST -->
+        {% for blog in blogs %}
+
+        <div class="blog-card">
+
+            <div class="blog-img-box">
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}">
+                      {% else %}
+                     <img src="{% static 'images/default.png' %}">
+                {% endif %}
+            </div>
+
+            <div class="blog-content">
+
+                <span class="blog-date">
+                    {{ blog.created_at|date:"M d, Y" }}
+                </span>
+
+                <h3>{{ blog.title }}</h3>
+
+                <p>
+                    {{ blog.description|truncatewords:18 }}
+                </p>
+
+                <div class="blog-meta">
+                    📖 Read 5 min
+                </div>
+
+                <span class="blog-author">
+                    By, {{ blog.author }}
+                </span>
+
+                <a href="{% url 'blog_detail' blog.id %}" class="read-btn">Read Now</a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+        <p>No blogs found.</p>
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ================= RIGHT SIDEBAR ================= -->
+    <div class="blog-right">
+
+        <!-- SUBSCRIBE -->
+        <div class="subscribe-card">
+
+            <h3>Join the TastyBites Community</h3>
+
+            <p class="sub-text">
+                Love delicious recipes? Don’t miss out on our latest food blogs and cooking tips!
+            </p>
+
+            <button class="subscribe-btn">Subscribe Now</button>
+
+            <p class="small-text">
+                Our email newsletter delivers our new recipes and latest updates.
+                It’s always free and you can unsubscribe any time.
+            </p>
+
+        </div>
+
+
+        <!-- AUTHOR -->
+        <div class="author-card">
+
+            <img src="{% static 'images/lindsay.jpg' %}">
+
+            <p class="author-small">HI! I'M LINDSAY</p>
+
+            <h4 class="author-title">Nice to meet you</h4>
+
+            <p class="author-desc">
+                I’m a former 4th grade teacher, now full time blogger.
+                My husband Bjork and I live in Minnesota. Favorite things include my camera,
+                lake days, and dark chocolate.
+            </p>
+
+            <button class="learn-btn">Learn More</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<section class="email-strip-wrapper">
+
+    <div class="email-strip">
+
+        <!-- LEFT -->
+        <div class="email-left">
+
+            <span class="follow-text">Follow us ,</span>
+
+            <div class="social-box">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="email-right">
+
+            <h3>Sign Up for Email Updates</h3>
+
+            <div class="email-form">
+                <input type="email" placeholder="Enter Email Address">
+                <button>Subscribe</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

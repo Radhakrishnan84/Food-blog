@@ -1,0 +1,198 @@
+/* ===== FULL PAGE ===== */
+.login-section{
+height:100vh;
+background:url('/static/images/hero1.png') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.login-section::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.3);
+}
+
+.login-section a{
+    text-decoration: none;
+}
+
+/* ===== CARD ===== */
+.login-box{
+position:relative;
+width:420px;
+background:#ffffff;
+padding:15px 30px;
+margin-top: 80px;
+border-radius:12px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:2;
+}
+
+
+/* ===== TITLE ===== */
+.login-box h2{
+text-align:center;
+font-size:20px;
+margin-bottom:5px;
+}
+
+.login-box p{
+text-align:center;
+font-size:14px;
+color:#6B7280;
+margin-bottom:15px;
+}
+
+
+/* ===== LABELS ===== */
+.login-box label{
+font-size:13px;
+font-weight:600;
+margin-top:20px;
+gap: 10px;
+}
+
+
+/* ===== INPUTS ===== */
+.login-box input{
+width:100%;
+height:45px;
+padding:0px 12px;
+margin-top: 15px;
+border:1px solid #C3C4C4;
+border-radius:8px;
+outline:none;
+font-size:14px;
+transition:0.3s;
+}
+
+.login-box input:focus{
+border-color:#FE4A51;
+box-shadow:0 0 0 2px #FFD0D2;
+}
+
+.login-box form{
+display:flex;
+flex-direction:column;
+}
+
+.password-wrapper{
+position:relative;
+}
+
+.password-wrapper i{
+margin-top: 18px;
+}
+
+.toggle-password{
+position:absolute;
+right:12px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+color:#6B7280;
+}
+
+/* ===== FORGOT PASSWORD ===== */
+.forgot{
+display:block;
+text-align:right;
+margin-top:5px;
+margin-bottom:10px;
+font-size:13px;
+color:#FE4A51;
+text-decoration:none;
+}
+
+
+/* ===== BUTTON ===== */
+.login-box button{
+display:block;
+width:60%;
+margin:10px auto; 
+height:45px;
+background:#FE4A51;
+color:#fff;
+border:none;
+border-radius:25px;
+font-size:15px;
+cursor:pointer;
+}
+
+
+.login-box button:hover{
+background:#C81118;
+}
+
+
+/* ===== REGISTER TEXT ===== */
+.register-link{
+text-align:center;
+font-size:13px;
+margin-top:10px;
+}
+
+.register-link a{
+color:#FE4A51;
+font-weight:600;
+text-decoration:none;
+}
+
+
+/* ===== DIVIDER ===== */
+.login-box hr{
+margin:10px 0;
+border:0;
+border-top:1px solid #EFEFEF;
+}
+
+
+/* ===== QUICK LOGIN ===== */
+.quick{
+text-align:center;
+font-size:13px;
+color:#6B7280;
+}
+
+
+/* ===== GOOGLE BUTTON ===== */
+
+.google-btn{
+margin-top:10px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;   /* 🔥 spacing between icon & text */
+border:1px solid #C3C4C4;
+border-radius:8px;
+background:#fff;
+cursor:pointer;
+transition:0.3s;
+}
+
+.google-btn:hover{
+background:#EFEFEF;
+}
+
+.google-icon{
+width:18px;
+height:18px;
+}
+
+
+/* ===== ERROR ===== */
+.error{
+color:red;
+font-size:12px;
+text-align:center;
+}

@@ -1088,3 +1088,296 @@ cursor:pointer;
 .social-icons i:hover{
 opacity:0.8;
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (FULL SITE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* ===== NAVBAR ===== */
+    .navbar{
+        padding:12px 15px;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .nav-left{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .logo{
+        height:45px;
+    }
+
+    .search-box{
+        width:100%;
+        order:3;
+        margin-top:10px;
+        padding:8px 14px;
+    }
+
+    .menu{
+        width:100%;
+        display:flex;
+        overflow-x:auto;
+        gap:15px;
+        order:2;
+    }
+
+    .menu a{
+        font-size:14px;
+        margin:0;
+        white-space:nowrap;
+    }
+
+    .nav-right{
+        gap:10px;
+    }
+
+    .subscribe-btn{
+        padding:6px 12px;
+        font-size:13px;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+        height:420px;
+        padding:0 15px;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .explore-btn,
+    .write-btn{
+        font-size:14px;
+        padding:10px 18px;
+    }
+
+    /* ===== TRENDING ===== */
+    .trending{
+        padding:30px 15px;
+    }
+
+    .trending-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .recipe-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* ===== BLOGS ===== */
+    .latest-blogs{
+        padding:30px 15px;
+    }
+
+    .blogs-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* ===== CATEGORIES ===== */
+    .categories{
+        padding:30px 15px;
+    }
+
+    .category-grid{
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        padding-left:0;
+    }
+
+    .small,
+    .large{
+        height:150px;
+    }
+
+    /* ===== WHY JOIN ===== */
+    .why-join{
+        padding:30px 15px;
+    }
+
+    .why-container{
+        grid-template-columns:1fr;
+    }
+
+    .why-image img{
+        height:250px;
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter{
+        padding:30px 15px;
+    }
+
+    .newsletter-box{
+        padding:25px 15px;
+        border-radius:12px;
+    }
+
+    .newsletter-box h2{
+        font-size:20px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        width:100%;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer{
+        padding:40px 15px 20px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+        padding-left:0;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* NAVBAR */
+    .navbar{
+        padding:15px 30px;
+    }
+
+    .search-box{
+        width:220px;
+    }
+
+    .menu a{
+        margin:0 10px;
+        font-size:15px;
+    }
+
+    /* HERO */
+    .hero{
+        height:500px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    /* TRENDING */
+    .trending{
+        padding:40px 30px;
+    }
+
+    .recipe-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* BLOGS */
+    .latest-blogs{
+        padding:40px 30px;
+    }
+
+    .blogs-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* CATEGORIES */
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:20px;
+        padding-left:0;
+    }
+
+    /* WHY JOIN */
+    .why-join{
+        padding:40px 30px;
+    }
+
+    .why-container{
+        grid-template-columns:1fr;
+    }
+
+    /* FOOTER */
+    .footer{
+        padding:50px 30px;
+    }
+
+    .footer-top{
+        grid-template-columns:repeat(2,1fr);
+        gap:30px;
+    }
+
+    .footer-bottom{
+        padding-left:0;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .navbar{
+        padding:18px 50px;
+    }
+
+    .trending,
+    .latest-blogs,
+    .categories,
+    .why-join{
+        padding:60px 50px;
+    }
+
+    .footer{
+        padding:60px 50px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .navbar{
+        padding:20px 100px;
+    }
+
+    .trending,
+    .latest-blogs,
+    .categories,
+    .why-join{
+        padding:70px 120px;
+    }
+
+    .footer{
+        padding:70px 120px;
+    }
+
+}

@@ -188,3 +188,137 @@
     background:#FE4A51;
     color:#fff;
 }
+
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (MOBILE, TABLET, LAPTOP)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Layout stack */
+    .dashboard{
+        flex-direction:column;
+        padding:15px;
+        gap:20px;
+    }
+
+    .profile-card{
+        width:100%;
+    }
+
+    .dashboard-right{
+        width:100%;
+    }
+
+    /* Stats stack */
+    .stats{
+        flex-direction:column;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    /* Grid → single column */
+    .blog-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Hero smaller */
+    .dashboard-hero{
+        height:150px;
+    }
+
+    /* Avatar smaller */
+    .avatar{
+        width:60px;
+        height:60px;
+        font-size:22px;
+    }
+
+    /* Image height adjust */
+    .blog-card img{
+        height:180px;
+    }
+
+    /* Tabs scrollable */
+    .tabs{
+        display:flex;
+        overflow-x:auto;
+        gap:15px;
+    }
+
+    .tabs span{
+        white-space:nowrap;
+    }
+
+    /* 🔥 IMPORTANT: Show overlay on mobile (no hover support) */
+    .top-overlay{
+        opacity:1;
+        pointer-events:auto;
+        background:rgba(0,0,0,0.3);
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Stack layout */
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .profile-card{
+        width:100%;
+    }
+
+    /* Stats wrap */
+    .stats{
+        flex-wrap:wrap;
+    }
+
+    .card{
+        flex:1 1 calc(50% - 10px);
+    }
+
+    /* Grid stays 2 but cleaner */
+    .blog-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .profile-card{
+        width:260px;
+    }
+
+    .blog-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .blog-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}

@@ -383,3 +383,241 @@ background:#f1f1f1;
 font-size:13px;
 opacity:0.9;
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (DETAIL PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Header */
+    .detail-top{
+        padding:15px;
+        margin-top:80px;
+    }
+
+    .back-btn{
+        position:static;
+        display:block;
+        text-align:left;
+        margin-bottom:10px;
+    }
+
+    .detail-title{
+        font-size:20px;
+    }
+
+    .detail-meta{
+        flex-wrap:wrap;
+        gap:6px;
+        font-size:12px;
+    }
+
+    /* Hero */
+    .detail-hero img{
+        height:200px;
+    }
+
+    .detail-tags{
+        padding:0 10px;
+        font-size:11px;
+    }
+
+    /* Body */
+    .detail-body{
+        padding:15px;
+    }
+
+    .detail-body-grid{
+        grid-template-columns:1fr;
+    }
+
+    .body-img{
+        height:200px;
+    }
+
+    .body-text{
+        font-size:13px;
+    }
+
+    /* Sticky remove */
+    .body-right{
+        position:static;
+    }
+
+    /* Part 3 */
+    .detail-part3{
+        padding:15px;
+    }
+
+    .part3-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Gallery → single column */
+    .gallery-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:auto;
+    }
+
+    .gallery-grid img{
+        height:200px;
+    }
+
+    /* Right panel */
+    .part3-right{
+        gap:15px;
+    }
+
+    /* Video */
+    .play-icon{
+        width:40px;
+        height:40px;
+        font-size:16px;
+    }
+
+    /* Comment */
+    .comment-card{
+        padding:15px;
+    }
+
+    /* Newsletter */
+    .newsletter{
+        padding:30px 15px;
+    }
+
+    .newsletter-box{
+        padding:25px 15px;
+        border-radius:12px;
+    }
+
+    .newsletter-box h2{
+        font-size:20px;
+    }
+
+    .newsletter-box p{
+        font-size:13px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .newsletter-form input{
+        width:100%;
+    }
+
+    .newsletter-form button{
+        width:100%;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Header */
+    .detail-top{
+        padding:20px 30px;
+    }
+
+    .back-btn{
+        left:30px;
+    }
+
+    /* Body */
+    .detail-body{
+        padding:20px 30px;
+    }
+
+    .detail-body-grid{
+        grid-template-columns:1fr;
+    }
+
+    .body-right{
+        position:static;
+    }
+
+    /* Part 3 */
+    .detail-part3{
+        padding:20px 30px;
+    }
+
+    .part3-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Gallery → 2 columns */
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:auto;
+    }
+
+    .gallery-grid img{
+        height:180px;
+    }
+
+    /* Newsletter */
+    .newsletter{
+        padding:40px 30px;
+    }
+
+    .newsletter-form input{
+        width:250px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .detail-top{
+        padding:20px 50px;
+    }
+
+    .detail-body{
+        padding:20px 50px;
+    }
+
+    .detail-part3{
+        padding:20px 50px;
+    }
+
+    .newsletter{
+        padding:50px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .detail-top{
+        padding:20px 120px;
+    }
+
+    .detail-body{
+        padding:20px 120px;
+    }
+
+    .detail-part3{
+        padding:20px 120px;
+    }
+
+    .newsletter{
+        padding:70px 120px;
+    }
+
+}

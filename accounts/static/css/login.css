@@ -196,3 +196,113 @@ color:red;
 font-size:12px;
 text-align:center;
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (LOGIN PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Full section fix */
+    .login-section{
+        height:auto;
+        min-height:100vh;
+        padding:20px 15px;
+    }
+
+    /* Card full width */
+    .login-box{
+        width:100%;
+        margin-top:40px;
+        padding:20px;
+        border-radius:10px;
+    }
+
+    /* Title */
+    .login-box h2{
+        font-size:18px;
+    }
+
+    .login-box p{
+        font-size:13px;
+    }
+
+    /* Inputs */
+    .login-box input{
+        height:42px;
+        font-size:13px;
+    }
+
+    /* Button full width */
+    .login-box button{
+        width:100%;
+        height:42px;
+        border-radius:8px;
+    }
+
+    /* Google button */
+    .google-btn{
+        height:42px;
+        font-size:13px;
+    }
+
+    .google-icon{
+        width:16px;
+        height:16px;
+    }
+
+    /* Forgot */
+    .forgot{
+        font-size:12px;
+    }
+
+    /* Register */
+    .register-link{
+        font-size:12px;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    .login-box{
+        width:380px;
+        margin-top:60px;
+    }
+
+    .login-box button{
+        width:80%;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .login-box{
+        width:400px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .login-box{
+        width:450px;
+        padding:30px 40px;
+    }
+
+}

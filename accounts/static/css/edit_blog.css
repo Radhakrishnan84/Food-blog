@@ -191,15 +191,161 @@ textarea{
 }
 
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:900px){
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (WRITE BLOG PAGE)
+   ===================================================== */
 
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Page padding */
+    .write-page{
+        padding:15px;
+    }
+
+    /* Hero */
+    .hero{
+        height:180px;
+    }
+
+    /* Header stack */
+    .write-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .write-header h2{
+        font-size:20px;
+    }
+
+    .write-header p{
+        font-size:13px;
+    }
+
+    /* Buttons full width */
+    .actions{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .draft-btn,
+    .publish-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    /* Layout stack */
+    .write-layout{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .left,
+    .right{
+        width:100%;
+        padding:15px;
+    }
+
+    /* Grid → single column */
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    /* Inputs */
+    input, textarea, select{
+        font-size:13px;
+        padding:10px;
+    }
+
+    textarea{
+        height:110px;
+    }
+
+    /* Upload box */
+    .upload-box{
+        padding:15px;
+    }
+
+    .upload-box img{
+        width:100%;
+        height:120px;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Page padding */
+    .write-page{
+        padding:25px;
+    }
+
+    /* Layout stack but balanced */
     .write-layout{
         flex-direction:column;
     }
 
+    .left,
+    .right{
+        width:100%;
+    }
+
+    /* Grid 2 columns */
     .row{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Header spacing */
+    .write-header{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .write-page{
+        padding:30px;
+    }
+
+    .left{
+        flex:2;
+    }
+
+    .right{
+        flex:1;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .write-page{
+        padding:50px 80px;
+    }
+
+    .left{
+        flex:3;
+    }
+
+    .right{
+        flex:1.2;
     }
 
 }

@@ -270,3 +270,160 @@ input[type="file"]{
     }
 
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (WRITE PAGE ADVANCED)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Hero */
+    .hero{
+        height:180px;
+    }
+
+    /* Page */
+    .write-page{
+        padding:15px;
+    }
+
+    /* Container */
+    .write-container{
+        padding-left:0;
+        margin-top:60px;
+    }
+
+    /* Header */
+    .write-header{
+        padding-right:0;
+    }
+
+    .write-header h1{
+        font-size:20px;
+    }
+
+    .write-header p{
+        font-size:13px;
+    }
+
+    /* Buttons */
+    .write-actions{
+        position:static;
+        margin-top:15px;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .write-actions button{
+        font-size:13px;
+        padding:6px 14px;
+    }
+
+    /* Grid */
+    .write-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    /* Panels */
+    .write-left,
+    .write-right{
+        padding:15px;
+    }
+
+    /* Inputs */
+    .write-left input,
+    .write-left textarea,
+    .write-left select{
+        font-size:13px;
+        padding:10px;
+    }
+
+    textarea{
+        height:100px;
+    }
+
+    textarea[name="description"]{
+        height:120px;
+    }
+
+    /* Flex row */
+    .flex-row{
+        grid-template-columns:1fr;
+    }
+
+    /* Steps */
+    #stepsContainer textarea{
+        height:80px;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Container */
+    .write-container{
+        padding-left:20px;
+    }
+
+    /* Header */
+    .write-header{
+        padding-right:0;
+    }
+
+    /* Grid */
+    .write-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Flex row */
+    .flex-row{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Buttons */
+    .write-actions{
+        position:static;
+        margin-top:10px;
+        justify-content:flex-start;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .write-container{
+        padding-left:40px;
+    }
+
+    .write-header{
+        padding-right:200px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .write-container{
+        padding-left:120px;
+    }
+
+    .write-header{
+        padding-right:350px;
+    }
+
+}

@@ -342,3 +342,214 @@ background:#f1f1f1;
 font-size:13px;
 opacity:0.9;
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (RECIPE PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Hero */
+    .recipe-hero{
+        height:180px;
+    }
+
+    .hero-content h1{
+        font-size:20px;
+    }
+
+    .hero-content p{
+        font-size:12px;
+    }
+
+    /* Title */
+    .recipe-title{
+        padding:15px;
+    }
+
+    /* Grid section */
+    .recipe-grid-section{
+        padding:15px;
+    }
+
+    .recipe-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Card */
+    .card-img{
+        height:160px;
+    }
+
+    .card-content h3{
+        font-size:14px;
+    }
+
+    .card-content p{
+        font-size:12px;
+    }
+
+    /* Banner */
+    .recipe-banner{
+        height:auto;
+        padding:40px 15px;
+        text-align:center;
+    }
+
+    .banner-content{
+        max-width:100%;
+    }
+
+    .banner-content h2{
+        font-size:20px;
+    }
+
+    .banner-content p{
+        font-size:12px;
+    }
+
+    /* All recipes */
+    .all-recipes{
+        padding:20px 15px;
+    }
+
+    .all-recipes-grid{
+        grid-template-columns:1fr;
+    }
+
+    .recipe-box img{
+        height:160px;
+    }
+
+    /* Newsletter */
+    .newsletter{
+        padding:30px 15px;
+    }
+
+    .newsletter-box{
+        padding:25px 15px;
+        border-radius:12px;
+    }
+
+    .newsletter-box h2{
+        font-size:20px;
+    }
+
+    .newsletter-box p{
+        font-size:13px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        width:100%;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Section padding */
+    .recipe-title{
+        padding:20px 30px;
+    }
+
+    .recipe-grid-section{
+        padding:20px 30px;
+    }
+
+    /* Grid → 2 columns */
+    .recipe-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Banner */
+    .recipe-banner{
+        padding:0 30px;
+    }
+
+    /* All recipes → 2 columns */
+    .all-recipes{
+        padding:25px 30px;
+    }
+
+    .all-recipes-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Newsletter */
+    .newsletter{
+        padding:40px 30px;
+    }
+
+    .newsletter-form input{
+        width:250px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .recipe-title{
+        padding:20px 50px;
+    }
+
+    .recipe-grid-section{
+        padding:20px 50px;
+    }
+
+    .recipe-banner{
+        padding:0 50px;
+    }
+
+    .all-recipes{
+        padding:30px 50px;
+    }
+
+    .newsletter{
+        padding:50px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .recipe-title{
+        padding:20px 120px;
+    }
+
+    .recipe-grid-section{
+        padding:20px 120px;
+    }
+
+    .recipe-banner{
+        padding:0 120px;
+    }
+
+    .all-recipes{
+        padding:30px 120px;
+    }
+
+    .newsletter{
+        padding:70px 120px;
+    }
+
+}

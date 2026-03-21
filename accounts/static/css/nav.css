@@ -189,3 +189,131 @@ transform:scale(1.05);
 box-shadow:0 6px 18px rgba(254,74,81,0.4);
 
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (NAVBAR)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Navbar padding */
+    .navbar{
+        padding:12px 15px;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    /* Left section */
+    .nav-left{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .logo{
+        height:45px;
+    }
+
+    /* Search full width */
+    .search-box{
+        width:100%;
+        order:3;   /* move below */
+        margin-top:10px;
+        padding:8px 14px;
+    }
+
+    .search-box input{
+        font-size:14px;
+    }
+
+    /* Menu scrollable */
+    .menu{
+        width:100%;
+        display:flex;
+        overflow-x:auto;
+        gap:15px;
+        padding:5px 0;
+        order:2;
+    }
+
+    .menu a{
+        font-size:14px;
+        margin:0;
+        white-space:nowrap;
+    }
+
+    /* Right section */
+    .nav-right{
+        gap:10px;
+    }
+
+    .subscribe-btn{
+        padding:6px 14px;
+        font-size:13px;
+    }
+
+    .account{
+        font-size:15px;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    .navbar{
+        padding:15px 30px;
+        gap:15px;
+    }
+
+    .search-box{
+        width:220px;
+    }
+
+    .menu a{
+        margin:0 10px;
+        font-size:15px;
+    }
+
+    .subscribe-btn{
+        padding:8px 16px;
+        font-size:14px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .navbar{
+        padding:18px 50px;
+    }
+
+    .search-box{
+        width:280px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .navbar{
+        padding:20px 100px;
+    }
+
+    .search-box{
+        width:400px;
+    }
+
+}

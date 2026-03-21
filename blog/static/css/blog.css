@@ -455,3 +455,211 @@ transition:0.3s;
 .email-form button:hover{
 background:#eee;
 }
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (BLOG PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Section padding */
+    .blog-section{
+        padding:20px 15px;
+    }
+
+    /* Wrapper → stack */
+    .blog-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    /* Hero */
+    .blog-hero{
+        height:180px;
+    }
+
+    .hero-content h1{
+        font-size:20px;
+    }
+
+    .hero-content p{
+        font-size:12px;
+    }
+
+    /* Top bar */
+    .blog-top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    /* Blog card → vertical */
+    .blog-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .blog-img-box{
+        width:100%;
+        height:180px;
+    }
+
+    .blog-content h3{
+        font-size:14px;
+    }
+
+    .blog-content p{
+        font-size:12px;
+    }
+
+    /* Button */
+    .read-btn{
+        width:100%;
+        height:auto;
+        padding:8px;
+    }
+
+    /* Sidebar → below */
+    .blog-right{
+        margin-top:20px;
+    }
+
+    .author-card img{
+        height:250px;
+    }
+
+    /* Pagination */
+    .pagination{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    /* Email strip */
+    .email-strip-wrapper{
+        padding:20px 15px;
+    }
+
+    .email-strip{
+        flex-direction:column;
+        gap:20px;
+        padding:25px 15px;
+        text-align:center;
+    }
+
+    .email-left{
+        padding-left:0;
+        flex-direction:column;
+    }
+
+    .social-box{
+        padding:15px;
+    }
+
+    .email-right{
+        align-items:center;
+        padding-right:0;
+    }
+
+    .email-form{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .email-form input,
+    .email-form button{
+        width:100%;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Section padding */
+    .blog-section{
+        padding:30px;
+    }
+
+    /* Stack layout */
+    .blog-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    /* Blog card */
+    .blog-card{
+        gap:15px;
+    }
+
+    .blog-img-box{
+        width:120px;
+        height:100px;
+    }
+
+    /* Sidebar */
+    .author-card img{
+        height:300px;
+    }
+
+    /* Email strip */
+    .email-strip{
+        padding:30px;
+    }
+
+    .email-left{
+        padding-left:0;
+    }
+
+    .email-right{
+        padding-right:0;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .blog-section{
+        padding:40px 50px;
+    }
+
+    .email-strip{
+        padding:40px 50px;
+    }
+
+    .email-left{
+        padding-left:20px;
+    }
+
+    .email-right{
+        padding-right:20px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .blog-section{
+        padding:50px 120px;
+    }
+
+    .email-strip-wrapper{
+        padding:50px 120px;
+    }
+
+    .email-strip{
+        padding:50px 120px;
+    }
+
+}

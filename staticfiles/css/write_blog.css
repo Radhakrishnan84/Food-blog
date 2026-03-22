@@ -1,0 +1,429 @@
+/* ===== HERO BANNER ===== */
+.hero{
+    width:100%;
+    height:320px;
+    background:url('/static/images/hero1.png') center/cover no-repeat;
+    position:relative;
+    
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.2);
+}
+
+/* ===== PAGE ===== */
+.write-page{
+    padding:40px;
+    background:#f4f4f4;
+}
+
+/* ===== CONTAINER ===== */
+.write-container{
+    max-width:1200px;
+    margin-top: 80px;
+    position:relative;
+    padding-left: 80px;
+}
+
+/* ===== HEADER ===== */
+.write-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-bottom:10px;
+    padding-right: 320px;
+}
+
+.write-header h1{
+    font-size:28px;
+    font-weight:600;
+}
+
+.write-header p{
+    font-size:14px;
+    color:#6B7280;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.write-actions{
+    position:absolute;
+    right:0;
+    top:10px;
+    display:flex;
+    gap:10px;
+}
+
+.write-actions button{
+    border-radius:20px;
+    padding:8px 18px;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.write-actions button:first-child{
+    border:1px solid #FE4A51;
+    background:white;
+    color:#FE4A51;
+}
+
+.write-actions button:last-child{
+    background:#FE4A51;
+    color:white;
+    border:none;
+}
+
+.write-actions button:hover{
+    transform:scale(1.05);
+}
+
+/* ===== LAYOUT ===== */
+.write-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+}
+
+/* ===== LEFT PANEL ===== */
+.write-left{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+}
+
+/* ===== RIGHT PANEL ===== */
+.write-right{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+}
+
+/* ===== LABELS ===== */
+.write-left label{
+    font-size:13px;
+    font-weight:600;
+    color:#374151;
+}
+
+/* ===== INPUTS ===== */
+.write-left input,
+.write-left textarea,
+.write-left select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #E5E7EB;
+    border-radius:6px;
+    background:#FAFAFA;
+    font-size:14px;
+}
+
+.write-left input:focus,
+.write-left textarea:focus,
+.write-left select:focus{
+    border-color:#FE4A51;
+    box-shadow:0 0 0 2px #FFD0D2;
+    outline:none;
+}
+
+/* ===== TEXTAREA ===== */
+textarea{
+    height:120px;
+}
+
+textarea[name="description"]{
+    height:140px;
+}
+
+/* ===== FLEX ROW ===== */
+.flex-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+/* ===== FILE INPUT ===== */
+input[type="file"]{
+    border:1px dashed #ccc;
+    background:white;
+    padding:10px;
+    cursor:pointer;
+}
+
+/* ===== STEPS ===== */
+#stepsContainer textarea{
+    height:90px;
+}
+
+/* ===== ADD STEP BUTTON ===== */
+#addStepBtn{
+    background:#FE4A51;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+#addStepBtn:hover{
+    background:#C81118;
+}
+
+/* ===== RIGHT PANEL ===== */
+.write-right h3{
+    font-size:16px;
+    margin-top:30px;
+}
+
+.write-right h4{
+    font-size:14px;
+    margin-top:15px;
+}
+
+/* ===== RANGE ===== */
+.write-right input[type="range"]{
+    width:100%;
+    accent-color:#FE4A51;
+}
+
+/* ===== STYLE BUTTONS ===== */
+.radius-options button{
+    border:1px solid #ddd;
+    background:white;
+    padding:6px 10px;
+    border-radius:6px;
+    margin:5px;
+    cursor:pointer;
+}
+
+.radius-options button.active{
+    border:1px solid #FE4A51;
+    color:#FE4A51;
+}
+
+/* ===== IMAGE STYLE ===== */
+.write-right button{
+    border:1px solid #ddd;
+    background:white;
+    padding:8px;
+    border-radius:6px;
+    margin:5px 0;
+    cursor:pointer;
+}
+
+.write-right button.active{
+    border:1px solid #FE4A51;
+    color:#FE4A51;
+}
+
+/* ===== ADD IMAGE BUTTON ===== */
+.add-img{
+    width:100%;
+    margin-top:10px;
+    background:#FE4A51;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* ===== TAG INPUT ===== */
+.write-right input{
+    margin-top:10px;
+}
+
+/* ===== CHECKBOX ===== */
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.write-right input[type="checkbox"]{
+    accent-color:#FE4A51;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+
+    .write-grid{
+        grid-template-columns:1fr;
+    }
+
+    .flex-row{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .write-actions{
+        position:static;
+        margin-top:10px;
+        justify-content:center;
+    }
+
+}
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (WRITE PAGE ADVANCED)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Hero */
+    .hero{
+        height:180px;
+    }
+
+    /* Page */
+    .write-page{
+        padding:15px;
+    }
+
+    /* Container */
+    .write-container{
+        padding-left:0;
+        margin-top:60px;
+    }
+
+    /* Header */
+    .write-header{
+        padding-right:0;
+    }
+
+    .write-header h1{
+        font-size:20px;
+    }
+
+    .write-header p{
+        font-size:13px;
+    }
+
+    /* Buttons */
+    .write-actions{
+        position:static;
+        margin-top:15px;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .write-actions button{
+        font-size:13px;
+        padding:6px 14px;
+    }
+
+    /* Grid */
+    .write-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    /* Panels */
+    .write-left,
+    .write-right{
+        padding:15px;
+    }
+
+    /* Inputs */
+    .write-left input,
+    .write-left textarea,
+    .write-left select{
+        font-size:13px;
+        padding:10px;
+    }
+
+    textarea{
+        height:100px;
+    }
+
+    textarea[name="description"]{
+        height:120px;
+    }
+
+    /* Flex row */
+    .flex-row{
+        grid-template-columns:1fr;
+    }
+
+    /* Steps */
+    #stepsContainer textarea{
+        height:80px;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Container */
+    .write-container{
+        padding-left:20px;
+    }
+
+    /* Header */
+    .write-header{
+        padding-right:0;
+    }
+
+    /* Grid */
+    .write-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Flex row */
+    .flex-row{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Buttons */
+    .write-actions{
+        position:static;
+        margin-top:10px;
+        justify-content:flex-start;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .write-container{
+        padding-left:40px;
+    }
+
+    .write-header{
+        padding-right:200px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .write-container{
+        padding-left:120px;
+    }
+
+    .write-header{
+        padding-right:350px;
+    }
+
+}

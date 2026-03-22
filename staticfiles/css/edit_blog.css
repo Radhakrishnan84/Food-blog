@@ -1,0 +1,351 @@
+/* ================= HERO ================= */
+.hero{
+    width:100%;
+    height:280px;
+    background:url('/static/images/hero1.png') center/cover no-repeat;
+    position:relative;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.25);
+}
+
+
+/* ================= PAGE ================= */
+.write-page{
+    padding:40px;
+    background:#f5f5f5;
+}
+
+
+/* ================= HEADER ================= */
+.write-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.write-header h2{
+    font-size:26px;
+}
+
+.write-header p{
+    font-size:14px;
+    color:#6B7280;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+}
+
+.draft-btn{
+    border:1px solid #FE4A51;
+    background:white;
+    color:#FE4A51;
+    padding:8px 16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.publish-btn{
+    background:#FE4A51;
+    color:white;
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+
+/* ================= LAYOUT ================= */
+.write-layout{
+    display:flex;
+    gap:30px;
+}
+
+.left{
+    flex:2;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.right{
+    flex:1;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+
+/* ================= INPUTS ================= */
+input, textarea, select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+input:focus, textarea:focus, select:focus{
+    border-color:#FE4A51;
+    box-shadow:0 0 0 2px #FFD0D2;
+    outline:none;
+}
+
+textarea{
+    height:130px;
+    resize:none;
+}
+
+
+/* ================= ROW ================= */
+.row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+
+/* ================= IMAGE UPLOAD ================= */
+.upload-box{
+    border:2px dashed #ddd;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.upload-box:hover{
+    border-color:#FE4A51;
+}
+
+.upload-box img{
+    width:140px;
+    height:100px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+.upload-box input{
+    margin-top:10px;
+}
+
+
+/* ================= DYNAMIC SECTIONS ================= */
+.dynamic{
+    margin-top:20px;
+}
+
+.dynamic label{
+    font-weight:600;
+}
+
+
+/* ================= RIGHT PANEL ================= */
+.right h3{
+    margin-bottom:20px;
+}
+
+/* CHECKBOX FIX */
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:20px;
+}
+
+/* FIX CHECKBOX SIZE */
+.checkbox input{
+    width:16px;
+    height:16px;
+    cursor:pointer;
+}
+
+/* LABEL */
+.checkbox label{
+    font-size:14px;
+    color:#333;
+    cursor:pointer;
+}
+
+/* ================= BUTTON HOVER ================= */
+.draft-btn:hover{
+    background:#FFD0D2;
+}
+
+.publish-btn:hover{
+    background:#C81118;
+}
+
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (WRITE BLOG PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Page padding */
+    .write-page{
+        padding:15px;
+    }
+
+    /* Hero */
+    .hero{
+        height:180px;
+    }
+
+    /* Header stack */
+    .write-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .write-header h2{
+        font-size:20px;
+    }
+
+    .write-header p{
+        font-size:13px;
+    }
+
+    /* Buttons full width */
+    .actions{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .draft-btn,
+    .publish-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    /* Layout stack */
+    .write-layout{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .left,
+    .right{
+        width:100%;
+        padding:15px;
+    }
+
+    /* Grid → single column */
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    /* Inputs */
+    input, textarea, select{
+        font-size:13px;
+        padding:10px;
+    }
+
+    textarea{
+        height:110px;
+    }
+
+    /* Upload box */
+    .upload-box{
+        padding:15px;
+    }
+
+    .upload-box img{
+        width:100%;
+        height:120px;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Page padding */
+    .write-page{
+        padding:25px;
+    }
+
+    /* Layout stack but balanced */
+    .write-layout{
+        flex-direction:column;
+    }
+
+    .left,
+    .right{
+        width:100%;
+    }
+
+    /* Grid 2 columns */
+    .row{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Header spacing */
+    .write-header{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .write-page{
+        padding:30px;
+    }
+
+    .left{
+        flex:2;
+    }
+
+    .right{
+        flex:1;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .write-page{
+        padding:50px 80px;
+    }
+
+    .left{
+        flex:3;
+    }
+
+    .right{
+        flex:1.2;
+    }
+
+}

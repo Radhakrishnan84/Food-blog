@@ -1,0 +1,665 @@
+/* ================= GLOBAL ================= */
+
+.blog-section{
+padding:40px 80px;
+background:#f5f5f5;
+font-family:'Lato', sans-serif;
+}
+
+.blog-wrapper{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:30px;
+align-items:start;
+}
+
+
+/* ================= HERO ================= */
+
+.blog-hero{
+height:280px;
+background:url('/static/images/hero3.png') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+text-align:center;
+}
+
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-content h1{
+font-size:30px;
+font-weight:700;
+color:#111827;
+margin-top:20px;
+}
+
+.hero-content p{
+color:#6B7280;
+font-size:14px;
+}
+
+
+/* ================= LEFT ================= */
+
+.blog-left{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+
+/* TOP BAR */
+.blog-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+}
+
+
+/* ================= CATEGORY ================= */
+
+.category-dropdown{
+position:relative;
+}
+
+/* BUTTON */
+.dropdown-btn{
+border:none;
+background:none;
+font-weight:600;
+cursor:pointer;
+}
+
+/* MENU */
+.dropdown-menu{
+position:absolute;
+top:40px;
+left:0;
+background:#fff;
+border-radius:10px;
+border:1px solid #eee;
+
+display:none; /* IMPORTANT */
+
+flex-direction:column;
+min-width:160px;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+z-index:10;
+}
+
+/* SHOW CLASS */
+.dropdown-menu.show{
+display:flex;
+}
+
+.dropdown-menu a{
+padding:10px;
+text-decoration:none;
+color:#333;
+font-size:13px;
+}
+
+.dropdown-menu a:hover{
+background:#FFD0D2;
+}
+
+.active-cat{
+background:#FE4A51;
+color:#fff;
+}
+
+
+/* ================= BLOG CARD ================= */
+
+.blog-card{
+display:flex;
+align-items:center;
+gap:18px;
+background:#fff;
+padding:16px;
+border-radius:14px;
+border:1px solid #e5e7eb;
+transition:0.3s ease;
+}
+
+.blog-card:hover{
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+
+/* IMAGE */
+.blog-img-box{
+width:150px;
+height:110px;
+flex-shrink:0;
+border-radius:10px;
+overflow:hidden;
+}
+
+.blog-img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.4s;
+}
+
+.blog-card:hover img{
+transform:scale(1.05);
+}
+
+
+
+/* CONTENT */
+.blog-content{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.blog-date{
+font-size:12px;
+color:#FE4A51;
+}
+
+.blog-content h3{
+font-size:16px;
+font-weight:600;
+color:#111827;
+margin:2px 0;
+}
+
+.blog-content p{
+font-size:13px;
+color:#6B7280;
+line-height:1.4;
+}
+
+.blog-meta{
+font-size:12px;
+color:#9CA3AF;
+}
+
+.blog-author{
+font-size:12px;
+color:#9CA3AF;
+}
+
+
+/* BUTTON */
+.read-btn{
+display:inline-block;
+margin-top:6px;
+background:#FE4A51;
+color:#fff;
+padding:6px 14px;
+width: 100px;
+height: 30px;
+border-radius: 25px;
+text-align: center;
+font-size:12px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.read-btn:hover{
+background:#C81118;
+}
+
+
+/* ================= RIGHT SIDEBAR ================= */
+
+.blog-right{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+
+/* CARDS */
+.subscribe-card{
+    
+    margin-top: 50px;
+
+}
+
+.subscribe-card,
+.author-card{
+background:#fff;
+padding:20px;
+border-radius:14px;
+border:1px solid #FFD0D2;
+text-align:center;
+transition:0.3s;
+}
+
+.subscribe-card:hover,
+.author-card:hover{
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+
+/* SUBSCRIBE */
+.subscribe-card h3{
+font-size:16px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.sub-text{
+font-size:13px;
+color:#6B7280;
+margin-bottom:15px;
+}
+
+.subscribe-btn{
+background:#FE4A51;
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:20px;
+font-size:13px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.subscribe-btn:hover{
+background:#C81118;
+}
+
+.small-text{
+font-size:12px;
+color:#6B7280;
+margin-top:12px;
+line-height:1.4;
+}
+
+
+/* AUTHOR */
+.author-card img{
+width:100%;
+height:480px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:12px;
+}
+
+.author-small{
+font-size:11px;
+color:#9CA3AF;
+letter-spacing:1px;
+}
+
+.author-title{
+font-size:18px;
+color:#FE4A51;
+margin:6px 0;
+}
+
+.author-desc{
+font-size:13px;
+color:#6B7280;
+line-height:1.5;
+margin:10px 0;
+}
+
+.learn-btn{
+background:#FE4A51;
+color:#fff;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.learn-btn:hover{
+background:#C81118;
+}
+
+
+/* ================= PAGINATION ================= */
+
+.pagination{
+display:flex;
+align-items:center;
+gap:6px;
+font-size:13px;
+}
+
+.page{
+padding:4px 10px;
+border-radius:6px;
+background:#EFEFEF;
+color:#333;
+text-decoration:none;
+}
+
+.page.active{
+background:#FE4A51;
+color:#fff;
+}
+
+.next{
+margin-left:8px;
+color:#6B7280;
+text-decoration:none;
+}
+
+
+/* ===== WRAPPER (center align like image) ===== */
+.email-strip-wrapper{
+padding:40px 80px;
+background:#f5f5f5;
+}
+
+
+/* ===== MAIN BOX ===== */
+.email-strip{
+background:#FE4A51;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:45px 80px;
+color:#fff;
+}
+
+
+/* ===== LEFT SIDE ===== */
+.email-left{
+display:flex;
+align-items:center;
+gap:15px;
+padding-left: 80px;
+}
+
+.follow-text{
+font-size:14px;
+}
+
+
+/* SOCIAL ICON BOX */
+.social-box{
+display:flex;
+gap:12px;
+background:rgba(255,255,255,0.2);
+padding:30px 40px;
+border-radius:8px;
+}
+
+.social-box i{
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.social-box i:hover{
+transform:scale(1.1);
+}
+
+
+/* ===== RIGHT SIDE ===== */
+.email-right{
+display:flex;
+flex-direction:column;
+gap:8px;
+align-items:flex-end;
+padding-right: 80px;
+}
+
+.email-right h3{
+font-size:18px;
+font-weight:600;
+}
+
+
+/* FORM */
+.email-form{
+display:flex;
+gap:10px;
+}
+
+.email-form input{
+width:220px;
+padding:10px;
+border:none;
+border-radius:6px;
+outline:none;
+}
+
+.email-form button{
+padding:10px 16px;
+border:none;
+border-radius:6px;
+background:#fff;
+color:#333;
+cursor:pointer;
+transition:0.3s;
+}
+
+.email-form button:hover{
+background:#eee;
+}
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (BLOG PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Section padding */
+    .blog-section{
+        padding:20px 15px;
+    }
+
+    /* Wrapper → stack */
+    .blog-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    /* Hero */
+    .blog-hero{
+        height:180px;
+    }
+
+    .hero-content h1{
+        font-size:20px;
+    }
+
+    .hero-content p{
+        font-size:12px;
+    }
+
+    /* Top bar */
+    .blog-top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    /* Blog card → vertical */
+    .blog-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .blog-img-box{
+        width:100%;
+        height:180px;
+    }
+
+    .blog-content h3{
+        font-size:14px;
+    }
+
+    .blog-content p{
+        font-size:12px;
+    }
+
+    /* Button */
+    .read-btn{
+        width:100%;
+        height:auto;
+        padding:8px;
+    }
+
+    /* Sidebar → below */
+    .blog-right{
+        margin-top:20px;
+    }
+
+    .author-card img{
+        height:250px;
+    }
+
+    /* Pagination */
+    .pagination{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    /* Email strip */
+    .email-strip-wrapper{
+        padding:20px 15px;
+    }
+
+    .email-strip{
+        flex-direction:column;
+        gap:20px;
+        padding:25px 15px;
+        text-align:center;
+    }
+
+    .email-left{
+        padding-left:0;
+        flex-direction:column;
+    }
+
+    .social-box{
+        padding:15px;
+    }
+
+    .email-right{
+        align-items:center;
+        padding-right:0;
+    }
+
+    .email-form{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .email-form input,
+    .email-form button{
+        width:100%;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Section padding */
+    .blog-section{
+        padding:30px;
+    }
+
+    /* Stack layout */
+    .blog-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    /* Blog card */
+    .blog-card{
+        gap:15px;
+    }
+
+    .blog-img-box{
+        width:120px;
+        height:100px;
+    }
+
+    /* Sidebar */
+    .author-card img{
+        height:300px;
+    }
+
+    /* Email strip */
+    .email-strip{
+        padding:30px;
+    }
+
+    .email-left{
+        padding-left:0;
+    }
+
+    .email-right{
+        padding-right:0;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .blog-section{
+        padding:40px 50px;
+    }
+
+    .email-strip{
+        padding:40px 50px;
+    }
+
+    .email-left{
+        padding-left:20px;
+    }
+
+    .email-right{
+        padding-right:20px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .blog-section{
+        padding:50px 120px;
+    }
+
+    .email-strip-wrapper{
+        padding:50px 120px;
+    }
+
+    .email-strip{
+        padding:50px 120px;
+    }
+
+}

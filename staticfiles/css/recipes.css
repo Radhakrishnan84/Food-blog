@@ -1,0 +1,555 @@
+/* ===== HERO ===== */
+.recipe-hero{
+height:280px;
+background:url('/static/images/hero3.png') center/cover no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+/* OVERLAY */
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0);
+}
+
+/* CONTENT */
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-content h1{
+font-size:28px;
+font-weight:700;
+margin-top:20px;
+}
+
+.hero-content p{
+font-size:14px;
+color:#555;
+}
+
+
+/* ===== TITLE ===== */
+.recipe-title{
+padding:20px 80px 10px;
+background:#f5f5f5;
+}
+
+.recipe-title h2{
+font-size:18px;
+font-weight:600;
+}
+
+/* ===== GRID SECTION ===== */
+.recipe-grid-section{
+padding:20px 80px 60px;
+background:#f5f5f5;
+}
+
+.recipe-grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:25px;
+}
+
+
+/* ===== CARD ===== */
+.recipe-card{
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+border:1px solid #eee;
+transition:0.3s;
+}
+
+.recipe-card:hover{
+transform:translateY(-5px);
+}
+
+
+/* IMAGE */
+.card-img{
+position:relative;
+height:180px;
+overflow:hidden;
+}
+
+.card-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* BADGE */
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:#FE4A51;
+color:#fff;
+padding:5px 10px;
+border-radius:12px;
+font-size:12px;
+}
+
+/* RATING */
+.rating{
+position:absolute;
+top:10px;
+right:10px;
+background:#fff;
+padding:5px 10px;
+border-radius:12px;
+font-size:12px;
+}
+
+
+/* CONTENT */
+.card-content{
+padding:15px;
+}
+
+.meta{
+display:flex;
+gap:10px;
+font-size:12px;
+color:#6B7280;
+margin-bottom:8px;
+}
+
+.card-content h3{
+font-size:16px;
+margin-bottom:5px;
+}
+
+.card-content p{
+font-size:13px;
+color:#6B7280;
+}
+
+
+/* FOOTER */
+.card-footer{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:10px;
+}
+
+.author{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.author img{
+width:24px;
+height:24px;
+border-radius:50%;
+}
+
+.heart{
+cursor:pointer;
+font-size:16px;
+color:#999;
+}
+
+.heart:hover{
+color:#FE4A51;
+}
+
+
+/* ===== BANNER ===== */
+.recipe-banner{
+height:100vh;
+background:url('/static/images/recipe-banner.png') center/cover no-repeat;
+display:flex;
+align-items:center;
+padding:0 80px;
+}
+
+.banner-content{
+max-width:400px;
+}
+
+.banner-content h5{
+color:#6B7280;
+}
+
+.banner-content h2{
+font-size:26px;
+margin:5px 0;
+}
+
+.banner-content p{
+font-size:13px;
+color:#555;
+}
+
+.banner-content button{
+margin-top:10px;
+padding:10px 20px;
+background:#FE4A51;
+color:#fff;
+border:none;
+border-radius:20px;
+}
+
+
+/* ===== ALL RECIPES ===== */
+.all-recipes{
+padding:30px 80px;
+background:#f5f5f5;
+}
+
+.all-recipes h2{
+margin-bottom:15px;
+}
+
+.all-recipes-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+
+/* CARD */
+.recipe-box{
+position:relative;
+display:block;
+border-radius:12px;
+overflow:hidden;
+}
+
+.recipe-box img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* OVERLAY */
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+background:rgba(255,255,255,0.8);
+padding:10px;
+text-align:center;
+}
+
+.overlay p{
+font-size:13px;
+}
+
+
+/* BUTTON */
+.browse-btn{
+text-align:center;
+margin-top:20px;
+}
+
+.browse-btn button{
+background:#FE4A51;
+color:#fff;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+}
+
+/* ================= NEWSLETTER ================= */
+
+.newsletter{
+padding:60px 90px;
+background:#f7f7f7;
+}
+
+.newsletter-box{
+
+background:#FE4A51;
+
+padding:50px;
+
+border-radius:20px;
+
+text-align:center;
+
+color:white;
+
+}
+
+.newsletter-box h2{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.newsletter-box p{
+max-width:600px;
+margin:auto;
+font-size:14px;
+margin-bottom:25px;
+}
+
+.newsletter-form{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:10px;
+}
+
+.newsletter-form input{
+
+width:320px;
+
+padding:12px 18px;
+
+border-radius:25px;
+
+border:none;
+
+outline:none;
+
+}
+
+.newsletter-form button{
+
+background:white;
+
+color:#FE4A51;
+
+border:none;
+
+padding:12px 22px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+.newsletter-form button:hover{
+background:#f1f1f1;
+}
+
+.privacy-text{
+font-size:13px;
+opacity:0.9;
+}
+
+/* =====================================================
+   ✅ RESPONSIVE ADD-ON (RECIPE PAGE)
+   ===================================================== */
+
+
+/* 🔥 GLOBAL FIX */
+body{
+    overflow-x:hidden;
+}
+
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width:768px){
+
+    /* Hero */
+    .recipe-hero{
+        height:180px;
+    }
+
+    .hero-content h1{
+        font-size:20px;
+    }
+
+    .hero-content p{
+        font-size:12px;
+    }
+
+    /* Title */
+    .recipe-title{
+        padding:15px;
+    }
+
+    /* Grid section */
+    .recipe-grid-section{
+        padding:15px;
+    }
+
+    .recipe-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Card */
+    .card-img{
+        height:160px;
+    }
+
+    .card-content h3{
+        font-size:14px;
+    }
+
+    .card-content p{
+        font-size:12px;
+    }
+
+    /* Banner */
+    .recipe-banner{
+        height:auto;
+        padding:40px 15px;
+        text-align:center;
+    }
+
+    .banner-content{
+        max-width:100%;
+    }
+
+    .banner-content h2{
+        font-size:20px;
+    }
+
+    .banner-content p{
+        font-size:12px;
+    }
+
+    /* All recipes */
+    .all-recipes{
+        padding:20px 15px;
+    }
+
+    .all-recipes-grid{
+        grid-template-columns:1fr;
+    }
+
+    .recipe-box img{
+        height:160px;
+    }
+
+    /* Newsletter */
+    .newsletter{
+        padding:30px 15px;
+    }
+
+    .newsletter-box{
+        padding:25px 15px;
+        border-radius:12px;
+    }
+
+    .newsletter-box h2{
+        font-size:20px;
+    }
+
+    .newsletter-box p{
+        font-size:13px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        width:100%;
+    }
+
+}
+
+
+/* ================= TABLET (769px – 1024px) ================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    /* Section padding */
+    .recipe-title{
+        padding:20px 30px;
+    }
+
+    .recipe-grid-section{
+        padding:20px 30px;
+    }
+
+    /* Grid → 2 columns */
+    .recipe-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Banner */
+    .recipe-banner{
+        padding:0 30px;
+    }
+
+    /* All recipes → 2 columns */
+    .all-recipes{
+        padding:25px 30px;
+    }
+
+    .all-recipes-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Newsletter */
+    .newsletter{
+        padding:40px 30px;
+    }
+
+    .newsletter-form input{
+        width:250px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1025px – 1400px) ================= */
+@media (min-width:1025px) and (max-width:1400px){
+
+    .recipe-title{
+        padding:20px 50px;
+    }
+
+    .recipe-grid-section{
+        padding:20px 50px;
+    }
+
+    .recipe-banner{
+        padding:0 50px;
+    }
+
+    .all-recipes{
+        padding:30px 50px;
+    }
+
+    .newsletter{
+        padding:50px;
+    }
+
+}
+
+
+/* ================= LARGE SCREENS (1400px+) ================= */
+@media (min-width:1400px){
+
+    .recipe-title{
+        padding:20px 120px;
+    }
+
+    .recipe-grid-section{
+        padding:20px 120px;
+    }
+
+    .recipe-banner{
+        padding:0 120px;
+    }
+
+    .all-recipes{
+        padding:30px 120px;
+    }
+
+    .newsletter{
+        padding:70px 120px;
+    }
+
+}

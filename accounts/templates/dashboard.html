@@ -60,8 +60,8 @@
                 </button>
 
                 <div class="activity">
-                    <button type="button">Likes {{ request.user.like_set.count }}</button>
-                    <button type="button">Comments {{ request.user.comment_set.count }}</button>
+                    <button type="button" class="edit-btn">Likes {{ request.user.like_set.count }}</button>
+                    <button type="button"class= "edit-btn">Comments {{ request.user.comment_set.count }}</button>
                 </div>
 
                 <a href="{% url 'logout' %}" class="logout">⬅ Logout</a>
@@ -155,7 +155,7 @@
 
                     <div class="top-overlay">
                         <a href="{% url 'edit_blog' blog.id %}" class="edit-btn">Edit</a>
-                        <a href="{% url 'publish_blog' blog.id %}" class="publish-btn">Publish</a>
+                        <a href="{% url 'publish_blog' blog.id %}" class="unpublish-btn">Publish</a>
                     </div>
 
                     <div class="bottom-overlay">

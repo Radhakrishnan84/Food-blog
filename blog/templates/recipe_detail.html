@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/recipe_detail.css' %}">
+
+<!-- HERO -->
+<section class="recipe-hero">
+    {% if recipe.image %}
+        <img src="{{ recipe.image.url }}">
+    {% endif %}
+
+    <div class="hero-text">
+        <h1>{{ recipe.title }}</h1>
+        <p>{{ recipe.category }}</p>
+    </div>
+</section>
+
+<!-- INFO -->
+<div class="recipe-info-cards">
+
+    <div class="info-box">
+        ⏱ {{ recipe.cooking_time }}
+    </div>
+
+    <div class="info-box">
+        🍽 {{ recipe.servings|default:"2-4" }}
+    </div>
+
+    <div class="info-box">
+        ⭐ <span>{{ recipe.difficulty }}</span>
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="recipe-container">
+
+    <!-- INGREDIENTS -->
+    <div class="ingredients">
+
+        <h3>Ingredients</h3>
+
+        <ul>
+            {% for item in recipe.ingredients.splitlines %}
+                <li>✔ {{ item }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+
+    <!-- STEPS -->
+    <div class="steps">
+
+        <h3>Cooking Steps</h3>
+
+        {% for step in recipe.steps.splitlines %}
+        <div class="step">
+
+            <div class="step-number">
+                {{ forloop.counter }}
+            </div>
+
+            <div class="step-content">
+                <p>{{ step }}</p>
+
+                {% if forloop.counter == 1 and recipe.step_image %}
+                    <img src="{{ recipe.step_image.url }}">
+                {% endif %}
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

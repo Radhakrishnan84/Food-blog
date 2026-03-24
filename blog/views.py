@@ -121,6 +121,14 @@ def all_recipes(request):
     })
 
 
+def recipe_detail(request, id):
+    recipe = get_object_or_404(Recipe, id=id)
+
+    return render(request, 'recipe_detail.html', {
+        'recipe': recipe
+    })
+
+
 @login_required
 def create_blog(request):
 

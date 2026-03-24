@@ -1,6 +1,10 @@
+body{
+    overflow-x:hidden;
+}
+
 /* ===== FULL PAGE ===== */
 .login-section{
-height:100vh;
+min-height:100vh;
 background:url('/static/images/hero1.png') center/cover no-repeat;
 display:flex;
 align-items:center;
@@ -15,7 +19,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.3);
+background:rgba(0,0,0,0);
 }
 
 .login-section a{
@@ -190,11 +194,19 @@ height:18px;
 }
 
 
-/* ===== ERROR ===== */
-.error{
-color:red;
-font-size:12px;
-text-align:center;
+/* ERROR BOX */
+.form-error{
+    background:#ffe5e5;
+    color:#C81118;
+    padding:8px 12px;
+    border-radius:6px;
+    margin-bottom:10px;
+    font-size:13px;
+}
+
+/* INPUT ERROR STYLE */
+input:invalid{
+    border:1px solid #FE4A51;
 }
 
 /* =====================================================
@@ -305,4 +317,28 @@ body{
         padding:30px 40px;
     }
 
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    width:100%;
+    padding-right:40px;
+}
+
+.toggle-eye{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+}
+
+.form-error{
+    color:#FE4A51;
+    font-size:12px;
+    margin-top:5px;
+    margin-bottom:10px;
 }

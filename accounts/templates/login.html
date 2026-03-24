@@ -1,4 +1,4 @@
-{% extends 'nav.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load socialaccount %}
 
@@ -28,7 +28,9 @@
 </div>
 
 {% if error %}
-<p class="error">{{ error }}</p>
+    <div class="form-error">
+        {{ error }}
+    </div>
 {% endif %}
 
 <a href="{% url 'account_reset_password' %}" class="forgot">

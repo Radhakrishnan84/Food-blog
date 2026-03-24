@@ -1,4 +1,4 @@
-{% extends 'nav.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load socialaccount %}
 
@@ -23,21 +23,29 @@
 <!-- EMAIL -->
 <label>Email Id</label>
 <input type="email" name="email" placeholder="Enter Email Id" required>
+{% if messages %}
+    {% for message in messages %}
+        {% if "email" in message|stringformat:"s"|lower %}
+            <div class="form-error">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
 <!-- PASSWORD -->
 <div class="password-wrapper">
 <label>Password</label>
 <input type="password" name="password" id="password" placeholder="Enter Password" required>
 <i class="fa fa-eye-slash toggle-password" id="togglePassword"></i>
+{% if messages %}
+    {% for message in messages %}
+        {% if "password" in message|stringformat:"s"|lower %}
+            <div class="form-error">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
 </div>
 
-<!-- ERROR -->
-{% if messages %}
-    {% for message in messages %}
-        <p class="error">{{ message }}</p>
-    {% endfor %}
-{% endif %}
 
 <!-- REGISTER BUTTON -->
  <a href="{% url 'dashboard' %}">
@@ -56,8 +64,8 @@ Already have an account?
 
 <!-- GOOGLE LOGIN -->
 <a href="{% provider_login_url 'google' %}" class="google-btn">
-    Continue With Google
     <img src="{% static 'images/google.png' %}" class="google-icon">
+    Continue With Google
 </a>
 
 </form>

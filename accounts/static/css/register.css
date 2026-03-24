@@ -1,6 +1,10 @@
+body{
+    overflow-x:hidden;
+}
+
 /* ===== FULL PAGE ===== */
 .login-section{
-height:100vh;
+min-height:100vh;
 background:url('/static/images/hero1.png') center/cover no-repeat;
 display:flex;
 align-items:center;
@@ -191,11 +195,19 @@ height:18px;
 }
 
 
-/* ===== ERROR ===== */
-.error{
-color:red;
-font-size:12px;
-text-align:center;
+/* ERROR BOX */
+.form-error{
+    background:#ffe5e5;
+    color:#C81118;
+    padding:8px 12px;
+    border-radius:6px;
+    margin-bottom:10px;
+    font-size:13px;
+}
+
+/* INPUT ERROR STYLE */
+input:invalid{
+    border:1px solid #FE4A51;
 }
 
 

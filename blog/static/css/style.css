@@ -26,26 +26,17 @@ background:white;
 .navbar{
 
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
-
 z-index:1000;
-
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:18px 80px;
-
 background:rgba(255,255,255,0.6);
-
 backdrop-filter:blur(8px);
-
 box-shadow:0 2px 10px rgba(0,0,0,0.08);
-
 }
 
 
@@ -99,6 +90,31 @@ width:100%;
 
 font-size:15px;
 
+}
+
+/* RESULTS DROPDOWN */
+.search-results{
+    position:absolute;
+    top:75px;
+    width: 300px;;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    max-height:250px;
+    overflow-y:auto;
+    display:none;
+    z-index:999;
+}
+
+/* EACH ITEM */
+.search-item{
+    padding:10px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+}
+
+.search-item:hover{
+    background:#f5f5f5;
 }
 
 

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/recipes.css' %}">
+
+<!-- HERO -->
+<section class="recipes-hero">
+    <h1>All Recipes 🍽</h1>
+    <p>Explore every delicious recipe</p>
+</section>
+
+<!-- GRID -->
+<section class="recipes-section">
+
+    <div class="recipes-grid">
+
+        {% for recipe in recipes %}
+
+        <div class="recipe-card">
+
+            {% if recipe.image %}
+                <img src="{{ recipe.image.url }}">
+            {% else %}
+                <img src="{% static 'images/default.png' %}">
+            {% endif %}
+
+            <!-- HOVER -->
+            <div class="top-overlay">
+                <a href="{% url 'recipe_detail' recipe.id %}" class="view-btn">
+                    View Recipe
+                </a>
+            </div>
+
+            <!-- TEXT -->
+            <div class="bottom-overlay">
+                <p>{{ recipe.title }}</p>
+                <span>{{ recipe.category }}</span>
+            </div>
+
+        </div>
+
+        {% empty %}
+            <p>No recipes found</p>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

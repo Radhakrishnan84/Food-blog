@@ -8,7 +8,42 @@ from django.db.models import Count
 from .models import Like, Comment
 from .models import BlogStep, BlogImage
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
+from blog.models import Blog, Recipe
+from django.db.models import Q
 
+def search_api(request):
+    query = request.GET.get('q')
+
+    results = []
+
+    if query:
+
+        blogs = Blog.objects.filter(
+            Q(title__icontains=query) |
+            Q(category__icontains=query)
+        )[:5]
+
+        for blog in blogs:
+            results.append({
+                'title': blog.title,
+                'type': 'Blog',
+                'url': f'/blog/{blog.id}/'
+            })
+
+        recipes = Recipe.objects.filter(
+            Q(title__icontains=query) |
+            Q(category__icontains=query)
+        )[:5]
+
+        for recipe in recipes:
+            results.append({
+                'title': recipe.title,
+                'type': 'Recipe',
+                'url': f'/recipe/{recipe.id}/'
+            })
+
+    return JsonResponse({'results': results})
 
 
 def home(request):
@@ -76,7 +111,14 @@ def recipes_page(request):
         'recipes': recipes,
     })
 
-  
+def all_recipes(request):
+    from .models import Recipe
+
+    recipes = Recipe.objects.all().order_by('-id')
+
+    return render(request, 'all_recipes.html', {
+        'recipes': recipes
+    })
 
 
 @login_required

@@ -249,17 +249,37 @@ font-size:13px;
 
 
 /* BUTTON */
-.browse-btn{
-text-align:center;
-margin-top:20px;
+
+.browse-container{
+    display:flex;
+    justify-content:center;
+    margin-top:25px;
 }
 
-.browse-btn button{
-background:#FE4A51;
-color:#fff;
-padding:10px 20px;
-border:none;
-border-radius:20px;
+/* BUTTON STYLE */
+.browse-btn{
+    background:#FE4A51;
+    border:none;
+    border-radius:30px;
+    padding:10px 22px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+/* REMOVE LINK STYLE */
+.browse-btn a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    display:block;
+}
+
+/* HOVER EFFECT */
+.browse-btn:hover{
+    background:#C81118;
+    transform:translateY(-2px);
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
 }
 
 /* ================= NEWSLETTER ================= */

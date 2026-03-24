@@ -100,7 +100,7 @@
             All you need is 10 staple ingredients to make hundreds of authentic dishes.
         </p>
 
-        <button>Browse Guide</button>
+        <button class="browse-btn">Browse Guide</button>
 
     </div>
 
@@ -128,8 +128,10 @@
 
     </div>
 
-    <div class="browse-btn">
-        <button>Browse All</button>
+    <div class="browse-container">
+        <button class="browse-btn">
+             <a href="{% url 'all_recipes' %}">Browse All →</a>
+         </button>
     </div>
 
 </section>

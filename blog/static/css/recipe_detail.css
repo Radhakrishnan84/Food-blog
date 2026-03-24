@@ -1,9 +1,19 @@
 /* HERO */
 .recipe-hero{
-    margin-top: 80px;
-    height:300px;
+    margin-top: 100px;
+    height:600px;
     background:#000;
     position:relative;
+}
+
+/* BACK BUTTON */
+.back-btn{
+position:absolute;
+left:100px;
+top:25px;
+text-decoration:none;
+color:#fff;
+font-size:14px;
 }
 
 .recipe-hero img{

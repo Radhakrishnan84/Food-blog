@@ -7,6 +7,12 @@
 
 <!-- HERO -->
 <section class="recipe-hero">
+    
+    <!-- BACK -->
+    <a href="{% url 'all_recipes' %}" class="back-btn">
+        ← Back
+    </a>
+
     {% if recipe.image %}
         <img src="{{ recipe.image.url }}">
     {% endif %}

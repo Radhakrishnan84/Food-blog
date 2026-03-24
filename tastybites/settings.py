@@ -22,11 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+SECRET_KEY='django-super-secret-key-8457619'
+DEBUG= True
 
 ALLOWED_HOSTS = [
-    ".onrender.com",
+    "food-blog-4.onrender.com",
     "localhost",
     "127.0.0.1"
 ]
@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'tastybites.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': config('DB_NAME'),
+        'NAME': 'db.sqlite3',
     }
 }
 

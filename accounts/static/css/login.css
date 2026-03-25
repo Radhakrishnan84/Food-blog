@@ -319,23 +319,6 @@ body{
 
 }
 
-.password-box{
-    position:relative;
-}
-
-.password-box input{
-    width:100%;
-    padding-right:40px;
-}
-
-.toggle-eye{
-    position:absolute;
-    right:10px;
-    top:50%;
-    transform:translateY(-50%);
-    cursor:pointer;
-}
-
 .form-error{
     color:#FE4A51;
     font-size:12px;
